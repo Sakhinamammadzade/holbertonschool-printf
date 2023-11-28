@@ -48,5 +48,5 @@ int _printf(const char *format, ...)
 }
 int main(void)
 {
-	return (0);
+	return _printf("sekine zeynal team task \n");
 }
