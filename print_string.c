@@ -16,9 +16,9 @@ int print_string(unsigned int z, char *s)
 	}
 	else
 	{	
-		while(s[z] != '\0')
+		while(s[i] != '\0')
 		{
-			_putchar(s[z] + 1);
+			_putchar(s[i] + 1);
 			i++;
 			z++;
 		}
