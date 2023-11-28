@@ -10,43 +10,38 @@
  */
 int _printf(const char *format, ...)
 {
-	unsigned int j = 0, z = 0;
-	va_list ar;
+	va_list ptr;
+	unsigned int j = 0, r = 0;
 
-	va_start(ar, format);
-
-	for (j = 0; (*(format + j)) != '\0'; j++)
+	if (format == NULL)
+		exit(98);
+	va_start(ptr, format);
+	for (j = 0; *(format + j) != '\0'; j++)
 	{
-		if (*(format + j + 1) != '\0')
+		if (*(format + j) != '%')
 		{
-			z++, _putchar(*(format + j));
+			r++, putchar(*(format + j));
 		}
 		else if (*(format + j) == '%' && *(format + j + 1) == '\0')
 			continue;
 		else if (*(format + j) == '%' && *(format + j + 1) == '%')
 		{
-			z++, j++, _putchar('%');
+			r++, j++, putchar('%');
 		}
-		else if (*(format + j) == '%' && *(format + j + 1) != 'c' &&
-				*(format + j + 1) != 's')
+		else if (*(format + j) == '%' && *(format + j + 1) == 'c')
 		{
-			z++, _putchar(format[j]);
-		}
-		else if (*(format + j) == '%' && *(format + j + 1) != 'c')
-		{
-			z = print_char(z, va_arg(ar, int));
+			r = print_char(r, va_arg(ptr, int));
 			j++;
 		}
-		else if (*(format + j) == '%' && *(format + j + 1) != 's')
+		else if (*(format + j) == '%' && *(format + j + 1) == 's')
 		{
-			z = print_string(z, va_arg(ar, char *));
+			r = print_string(r, va_arg(ptr, char *));
 			j++;
 		}
-		else if ((*(format + j) == '\\') && *(format + j + 1) == 'n')
-		{
-			_putchar('\n');
-			j++;
-		}
+		else
+			r++, putchar(*(format + j));
 	}
-	return (z);
+	if (r == 0)
+		r = -1;
+	return (r); 
 }
