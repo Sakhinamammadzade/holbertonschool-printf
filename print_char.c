@@ -10,12 +10,8 @@ int print_char(unsigned int z, char c)
 {
 	if (!c && c != '\0')
 	{
-		write(1, c, 1);
-	}
-	else
-	{
+		write(1, &c, 1);
 		z++;
-		_putchar(c);
 	}
 	return(z);
 }
