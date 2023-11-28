@@ -20,13 +20,13 @@ int _printf(const char *format, ...)
 	{
 		if (*(format + j) != '%')
 		{
-			r++, _putchar(*(format + j));
+			r++, putchar(*(format + j));
 		}
 		else if (*(format + j) == '%' && *(format + j + 1) == '\0')
 			continue;
 		else if (*(format + j) == '%' && *(format + j + 1) == '%')
 		{
-			r++, j++, _putchar('%');
+			r++, j++, putchar('%');
 		}
 		else if (*(format + j) == '%' && *(format + j + 1) == 'c')
 		{
@@ -37,11 +37,12 @@ int _printf(const char *format, ...)
 		{
 			r = print_string(r, va_arg(ptr, char *));
 			j++;
+		    
 		}
 		else
-			r++, _putchar(*(format + j));
+			r++, putchar(*(format + j));
 	}
 	if (r == 0)
 		r = -1;
-	return (r); 
+	return (r);
 }
