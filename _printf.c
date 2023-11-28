@@ -46,3 +46,7 @@ int _printf(const char *format, ...)
 	}
 	return (z);
 }
+int main(void)
+{
+	return (0);
+}
