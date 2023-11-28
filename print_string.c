@@ -1,4 +1,5 @@
 #include "main.h"
+#include <unistd.h>
 /**
  * print_string - print string
  * @z: leng
@@ -11,13 +12,7 @@ int print_string(unsigned int z, char *s)
 
     	if (!s)
 	{
-		_putchar('(');
-		_putchar('n');
-		_putchar('u');
-		_putchar('l');
-		_putchar('l');
-		_putchar(')');
-		z = z + 6;
+		write(1, &s[z], 1);
 	}
 	else
 	{	

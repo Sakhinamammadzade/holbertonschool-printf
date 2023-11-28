@@ -11,7 +11,6 @@
 int _printf(const char *format, ...)
 {
 	unsigned int j = 0, z = 0;
-
 	va_list ar;
 
 	va_start(ar, format);
@@ -41,6 +40,11 @@ int _printf(const char *format, ...)
 		else if (*(format + j) == '%' && *(format + j + 1) != 's')
 		{
 			z = print_string(z, va_arg(ar, char *));
+			j++;
+		}
+		else if ((*(format + j) == '\\') && *(format + j + 1) == 'n')
+		{
+			_putchar ('\n');
 			j++;
 		}
 	}
