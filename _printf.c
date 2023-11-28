@@ -2,6 +2,7 @@
 #include <stdarg.h>
 #include <limits.h>
 #include <string.h>
+#include "main.h"
 /**
  * _printf - print string
  * @format: format
@@ -20,11 +21,18 @@ int _printf(const char *format, ...)
 	{
 		if (*(format + j + 1) != '\0')
 		{
-			z++, putchar(*(format + j));
+			z++, _putchar (*(format + j));
 		}
-		else if (*(format + j) == '%' && *(format + j + 1) != 'c' && *(format + j + 1) != 's')
+		else if (*(format + j) == '%' && *(format + j + 1) == '\0')
+			continue;
+		else if (*(format + j) == '%' && *(format + j + 1) == '%')
 		{
-			z++, putchar(*(format + j));
+			z++, j++, _putchar('%');
+		}
+		else if (*(format + j) == '%' && *(format + j + 1) != 'c' &&
+				*(format + j + 1) != 's')
+		{
+			z++, _putchar (format[j]);
 		}
 		else if (*(format + j) == '%' && *(format + j + 1) != 'c')
 		{
@@ -37,5 +45,5 @@ int _printf(const char *format, ...)
 			j++;
 		}
 	}
-	return(z);
+	return (z);
 }
