@@ -9,14 +9,7 @@ int print_char(unsigned int z, char c)
 {
 	if (!c && c != '\0')
 	{
-		_putchar('(');
-		_putchar('n');
-		_putchar('u');
-		_putchar('l');
-		_putchar('l');
-		_putchar(')');
-		z = z + 6;
-	
+		write(1, c, 1);
 	}
 	else
 	{

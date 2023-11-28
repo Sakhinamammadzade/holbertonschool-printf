@@ -36,8 +36,7 @@ int _printf(const char *format, ...)
 		else if (*(format + j) == '%' && *(format + j + 1) == 's')
 		{
 			r = print_string(r, va_arg(ptr, char *));
-			j++;
-		    
+			j++; 
 		}
 		else
 			r++, putchar(*(format + j));
