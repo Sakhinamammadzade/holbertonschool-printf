@@ -7,7 +7,21 @@
  */
 int print_char(unsigned int z, char c)
 {
-    z++;
-    _putchar(c);
-    return(z);
+	if (!c && c != '\0')
+	{
+		_putchar('(');
+		_putchar('n');
+		_putchar('u');
+		_putchar('l');
+		_putchar('l');
+		_putchar(')');
+		z = z + 6;
+	
+	}
+	else
+	{
+		z++;
+		_putchar(c);
+	}
+	return(z);
 }
