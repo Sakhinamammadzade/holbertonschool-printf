@@ -11,7 +11,6 @@
 int _printf(const char *format, ...)
 {
 	unsigned int j = 0, z = 0;
-	int say = 0;
 
 	va_list ar;
 
