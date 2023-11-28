@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 	{
 		if (*(format + j + 1) != '\0')
 		{
-			z++, _putchar (*(format + j));
+			z++, _putchar(*(format + j));
 		}
 		else if (*(format + j) == '%' && *(format + j + 1) == '\0')
 			continue;
@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 		else if (*(format + j) == '%' && *(format + j + 1) != 'c' &&
 				*(format + j + 1) != 's')
 		{
-			z++, _putchar (format[j]);
+			z++, _putchar(format[j]);
 		}
 		else if (*(format + j) == '%' && *(format + j + 1) != 'c')
 		{
@@ -44,7 +44,7 @@ int _printf(const char *format, ...)
 		}
 		else if ((*(format + j) == '\\') && *(format + j + 1) == 'n')
 		{
-			_putchar ('\n');
+			_putchar('\n');
 			j++;
 		}
 	}
