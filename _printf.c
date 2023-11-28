@@ -46,7 +46,19 @@ int _printf(const char *format, ...)
 	}
 	return (z);
 }
+/**
+ * main - print string
+ *
+ * Return: letter count
+ */
+
 int main(void)
 {
-	return _printf("sekine zeynal team task \n");
+	int len;
+	int  len2;
+
+	len = _printf("Let's try to printf a simple sentence.\n");
+	len2 = printf("Let's try to printf a simple sentence.\n");
+	printf("%d %d\n", len, len2);
+	return (0);
 }
