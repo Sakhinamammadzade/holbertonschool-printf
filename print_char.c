@@ -13,5 +13,5 @@ int print_char(unsigned int z, char c)
 		write(1, &c, 1);
 		z++;
 	}
-	return(z);
+	return (z);
 }
