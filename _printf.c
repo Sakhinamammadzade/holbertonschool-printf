@@ -38,7 +38,8 @@ int _printf(const char *format, ...)
 			continue;
 		else
 		{
-			r++, _putchar(*(format + j));
+			_putchar('%');
+			r += _printf("%c", *(format + j)) + 1;
 		}
 	}
 	return (r);
