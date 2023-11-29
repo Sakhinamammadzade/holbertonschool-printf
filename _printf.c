@@ -11,12 +11,9 @@
 int _printf(const char *format, ...)
 {
 	va_list ptr;
-	unsigned int j = 0, r = 0;
-
-	if (format == NULL)
-		exit(98);
+	unsigned int say = 0, i = 0, j = 0, r = 0;
 	va_start(ptr, format);
-	for (j = 0; *(format + j) != '\0'; j++)
+	for ( j = 0; *(format + j) != '\0'; j++)
 	{
 		if (*(format + j) != '%')
 		{
@@ -30,7 +27,12 @@ int _printf(const char *format, ...)
 		else if (*(format + j) == '%' && *(format + j + 1) == 's')
 		{
 			r = print_string(r, va_arg(ptr, char *));
-			j++; 
+			j++;
+		}
+		else if (*(format + j) == '%' && (*(format + j + 1) == 'd') || *(format + j + 1) == 'i')
+		{
+			r = print_decimal(r, va_arg(ptr, int));
+			j++;
 		}
 		else
 		{
