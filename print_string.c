@@ -17,7 +17,7 @@ int print_string(unsigned int z, char *s)
 		_putchar('l');
 		_putchar('l');
 		_putchar(')');
-		r = r + 6;
+		z = z + 6;
 	}
 	else
 	{
@@ -25,8 +25,8 @@ int print_string(unsigned int z, char *s)
 		{
 			_putchar(*(s + i));
 			i++;
-			r++;
+			z++;
 		}
 	}
-    return (r);
+    return (z);
 }
