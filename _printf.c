@@ -34,6 +34,8 @@ int _printf(const char *format, ...)
 			r = print_string(r, va_arg(ptr, char *));
 			j++;
 		}
+		else if (*(format + j) == '%' && *(format + j + 1) == '\0')
+			continue;
 		else
 		{
 			r++, _putchar(*(format + j));
