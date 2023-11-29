@@ -8,9 +8,19 @@
  */
 int print_char(unsigned int z, char c)
 {
-	if (!c && c != '\0')
+	if (!c)
 	{
-		write(1, &c, 1);
+		_putchar('(');
+		_putchar('n');
+		_putchar('u');
+		_putchar('l');
+		_putchar('l');
+		_putchar(')');
+		z = z + 6;
+	}
+	else
+	{
+		_putchar(c);
 		z++;
 	}
 	return (z);

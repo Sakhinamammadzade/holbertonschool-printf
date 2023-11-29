@@ -8,15 +8,25 @@
  */
 int print_string(unsigned int z, char *s)
 {
-	int size = 0;
-
-	while (s[size])
+	int i = 0;
+	if (!s)
 	{
-		size++;
-	}	
-	if (s != NULL)
-	{
-		z += write(1, s, size);
+		_putchar('(');
+		_putchar('n');
+		_putchar('u');
+		_putchar('l');
+		_putchar('l');
+		_putchar(')');
+		r = r + 6;
 	}
-	return(z);
+	else
+	{
+		while (*(s + i) != '\0')
+		{
+			_putchar(*(s + i));
+			i++;
+			r++;
+		}
+	}
+    return (r);
 }
