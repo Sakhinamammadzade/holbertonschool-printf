@@ -20,7 +20,10 @@ int _printf(const char *format, ...)
 			r++, _putchar(*(format + j));
 		}
 		else if (*(format + j) == '%' && *(format + j + 1) == '%')
-			continue;
+		{
+			_putchar('%');
+			r++;
+		}
 		else if (*(format + j) == '%' && *(format + j + 1) == 'c')
 		{
 			r = print_char(r, va_arg(ptr, int));
