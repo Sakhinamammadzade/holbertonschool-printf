@@ -6,5 +6,5 @@ int _putchar(char c);
 int _printf(const char *format, ...);
 int print_char(unsigned int z, char c);
 int print_string(unsigned int z, char *s);
-int  print_decimal(unsigned int z, int c);
+int  print_decimal(int value);
 #endif
