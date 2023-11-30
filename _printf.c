@@ -106,7 +106,7 @@ int _printf(const char *format, ...)
 	{
 		if (*(format + j) == '%' && *(format + j + 1) == '%')
 		{
-			_putchar('%', r++, j += 2);
+			_putchar('%'), r++, j += 2;
 		}
 		else if (*(format + j) == '%' && *(format + j + 1) == 'c')
 		{
