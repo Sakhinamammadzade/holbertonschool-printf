@@ -55,7 +55,7 @@ int print_char(unsigned int z, char c)
 int print_decimal(unsigned int z, int s)
 {
 	unsigned int value;
-	int j;
+	int i, j;
 	char buffer[1000000];
 	int printed = 0;
 
@@ -70,7 +70,7 @@ int print_decimal(unsigned int z, int s)
 		value = s;
 	}
 
-	int i = 0;
+	i = 0;
 
 	do {
 		buffer[i++] = '0' + (value % 10);
