@@ -46,6 +46,32 @@ int print_char(unsigned int z, char c)
 	z++;
 	return (z);
 }
+int print_decimal(int value)
+{
+	int i, j;
+	char buffer[1000];
+	int printed = 0;
+
+	if (value < 0)
+	{
+		_putchar('-');
+		printed++;
+		value = -value
+	}
+	
+	i = 0;
+
+	do {
+		buffer[i++] = '0' + (value % 10);
+		value /= 10;
+		printed++;
+	} while (value > 0);
+	for (j = i - 1; j >= 0; j--)
+	{
+		_putchar(buffer[j]);
+	}
+	return (printed);
+}
 /**
  * _printf - print string
  * @format: format
@@ -80,6 +106,11 @@ int _printf(const char *format, ...)
 		else if (*(format + j) == '%' && *(format + j + 1) == 's')
 		{
 			r = print_string(r, va_arg(ptr, char *));
+			j += 2;
+		}
+		else if (*(format + j) == '%' && (*(format + j + 1) == 'd' || *(format + j + 1) == 'i'))
+		{
+			r = print_decimal(va_arg(ptr, int));
 			j += 2;
 		}
 		else
