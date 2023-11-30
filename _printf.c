@@ -47,10 +47,33 @@ int print_char(unsigned int z, char c)
 	return (z);
 }
 /**
+ * print_integers - print integers with variadic func
+ * @count: int
+ * Return: args
+ */
+void print_integers(int count, ...)
+{
+	int i;
+
+	va_list args;
+
+	va_start(args, count);
+
+	for (i = 0; i < count; ++i)
+	{
+	int value = va_arg(args, int);
+
+	printf("%d ", value);
+	}
+	va_end(args);
+	printf("\n");
+}
+/**
  * _printf - print string
  * @format: format
  * Return: letter count
  */
+
 int _printf(const char *format, ...)
 {
 	va_list ptr;
