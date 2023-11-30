@@ -84,7 +84,7 @@ int print_decimal(int value)
 	char buffer[1000000];
 	int printed = 0;
 
-	if (s < 0)
+	if (value < 0)
 	{
 		_putchar('-');
 		printed++;
