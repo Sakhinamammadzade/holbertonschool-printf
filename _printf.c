@@ -46,6 +46,12 @@ int print_char(unsigned int z, char c)
 	z++;
 	return (z);
 }
+/**
+ * print_decimal - This is the entry point of the code
+ * @value - First operand
+ *
+ * Return - 0 Successful
+ */
 int print_decimal(int value)
 {
 	int i, j;
@@ -71,38 +77,6 @@ int print_decimal(int value)
 		_putchar(buffer[j]);
 	}
 	return (printed);
-}
-/**
- * print_decimal - print integers with variadic func
- * @z: int
- * @s: int
- * Return: args
- */
-int print_decimal(int value)
-{
-	int i, j;
-	char buffer[1000000];
-	int printed = 0;
-
-	if (value < 0)
-	{
-		_putchar('-');
-		printed++;
-		value = -value;
-	}
-
-	i = 0;
-
-	do {
-		buffer[i++] = '0' + (value % 10);
-		value /= 10;
-		printed++;
-	} while (value > 0);
-	for (j = i - 1; j >= 0; j--)
-	{
-		_putchar(buffer[j]);
-	}
-	return (value);
 }
 /**
  * _printf - print string
