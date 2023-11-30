@@ -56,7 +56,7 @@ int print_decimal(int value)
 	{
 		_putchar('-');
 		printed++;
-		value = -value
+		value = -value;
 	}
 	
 	i = 0;
@@ -140,12 +140,7 @@ int _printf(const char *format, ...)
 		else if (*(format + j) == '%' && (*(format + j + 1) == 'd' ||
 		*(format + j + 1) == 'i'))
 		{
-			r = print_decimal(r, va_arg(ptr, int)), j += 2;
-		}
-		else if (*(format + j) == '%' && (*(format + j + 1) == 'd' || *(format + j + 1) == 'i'))
-		{
-			r = print_decimal(va_arg(ptr, int));
-			j += 2;
+			r = print_decimal(va_arg(ptr, int)), j += 2;
 		}
 		else
 		{
