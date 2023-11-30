@@ -51,7 +51,7 @@ int print_char(unsigned int z, char c)
  * @count: int
  * Return: args
  */
-void print_integers(int count, ...)
+void print_decimal(int count, ...)
 {
 	int i;
 
@@ -104,7 +104,7 @@ int _printf(const char *format, ...)
 		else if (*(format + j) == '%' && *(format + j + 1) == 'd' ||
 		*(format + j + 1) == 'i')
 		{
-			r = decimal(r, va_arg(ptr, int)), j += 2;
+			r = print_decimal(r, va_arg(ptr, int)), j += 2;
 		}
 		else
 		{
