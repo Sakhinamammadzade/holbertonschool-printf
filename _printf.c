@@ -47,26 +47,41 @@ int print_char(unsigned int z, char c)
 	return (z);
 }
 /**
- * print_integers - print integers with variadic func
- * @count: int
+ * print_decimal - print integers with variadic func
+ * @z: int
+ * @s: int
  * Return: args
  */
-void print_decimal(int count, ...)
+int print_decimal(unsigned int z, int s)
 {
-	int i;
+	unsigned int value;
+	int j;
+	char buffer[1000000];
+	int printed = 0;
 
-	va_list args;
-
-	va_start(args, count);
-
-	for (i = 0; i < count; ++i)
+	if (s < 0)
 	{
-	int value = va_arg(args, int);
-
-	printf("%d ", value);
+		putchar('-');
+		printed++;
+		value = -s;
 	}
-	va_end(args);
-	printf("\n");
+	else
+	{
+		value = s;
+	}
+
+	int i = 0;
+
+	do {
+		buffer[i++] = '0' + (value % 10);
+		value /= 10;
+		printed++;
+	} while (value > 0);
+	for (j = i - 1; j >= 0; j--)
+	{
+		putchar(buffer[j]);
+	}
+	return (z);
 }
 /**
  * _printf - print string
