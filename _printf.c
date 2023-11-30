@@ -91,24 +91,24 @@ int _printf(const char *format, ...)
 	{
 		if (*(format + j) == '%' && *(format + j + 1) == '%')
 		{
-			_putchar('%');
-			r++;
-			j += 2;
+			_putchar('%', r++, j += 2);
 		}
 		else if (*(format + j) == '%' && *(format + j + 1) == 'c')
 		{
-			r = print_char(r, (char)va_arg(ptr, int));
-			j += 2;
+			r = print_char(r, (char)va_arg(ptr, int)), j += 2;
 		}
 		else if (*(format + j) == '%' && *(format + j + 1) == 's')
 		{
-			r = print_string(r, va_arg(ptr, char *));
-			j += 2;
+			r = print_string(r, va_arg(ptr, char *)), j += 2;
+		}
+		else if (*(format + j) == '%' && *(format + j + 1) == 'd' ||
+		*(format + j + 1) == 'i')
+		{
+			r = decimal(r, va_arg(ptr, int)), j += 2;
 		}
 		else
 		{
-			r++, _putchar(*(format + j));
-			j++;
+			r++, _putchar(*(format + j)), j++;
 		}
 	}
 	return (r);
