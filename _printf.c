@@ -47,29 +47,24 @@ int print_char(unsigned int z, char c)
 	return (z);
 }
 /**
- * print_decimal - print integers with variadic func
- * @z: int
- * @s: int
- * Return: args
+ * print_decimal - This is the entry point of the code
+ * @value - First operand
+ *
+ * Return - 0 Successful
  */
-int print_decimal(unsigned int z, int s)
+int print_decimal(int value)
 {
-	unsigned int value;
 	int i, j;
-	char buffer[1000000];
+	char buffer[1000];
 	int printed = 0;
 
-	if (s < 0)
+	if (value < 0)
 	{
-		putchar('-');
+		_putchar('-');
 		printed++;
-		value = -s;
+		value = -value;
 	}
-	else
-	{
-		value = s;
-	}
-
+	
 	i = 0;
 
 	do {
@@ -79,9 +74,9 @@ int print_decimal(unsigned int z, int s)
 	} while (value > 0);
 	for (j = i - 1; j >= 0; j--)
 	{
-		putchar(buffer[j]);
+		_putchar(buffer[j]);
 	}
-	return (z);
+	return (printed);
 }
 /**
  * _printf - print string
@@ -119,7 +114,7 @@ int _printf(const char *format, ...)
 		else if (*(format + j) == '%' && (*(format + j + 1) == 'd' ||
 		*(format + j + 1) == 'i'))
 		{
-			r = print_decimal(r, va_arg(ptr, int)), j += 2;
+			r = print_decimal(va_arg(ptr, int)), j += 2;
 		}
 		else
 		{
