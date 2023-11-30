@@ -2,6 +2,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <limits.h>
 #include "main.h"
 /**
  * print_string - something usefull
@@ -57,27 +58,43 @@ int print_decimal(int value)
 	int i, j;
 	char buffer[1000];
 	int printed = 0;
-
-	if (value < 0)
+	if (value == INT_MIN)
 	{
-		_putchar('-');
-		printed++;
-		value = -value;
-	}
-	
-	i = 0;
-
+	const int lastDigit = -(value % 10);
+	value /= 10;
 	do {
-		buffer[i++] = '0' + (value % 10);
-		value /= 10;
-		printed++;
+	buffer[i++] = '0' + (value % 10);
+	value /= 10;
+	printed++;
+	} while (value != 0);
+	{
+	buffer[i++] = '0' + lastDigit;
+	} else
+	{
+        if (value < 0)
+	{
+	_putchar('-');
+	 printed++;
+	value = -value;
+	}
+	i = 0;
+	do {
+	
+        buffer[i++] = '0' + (value % 10);
+	
+	value /= 10;
+
+	printed++;
 	} while (value > 0);
+	}
 	for (j = i - 1; j >= 0; j--)
 	{
-		_putchar(buffer[j]);
+	_putchar(buffer[j]);
 	}
-	return (printed);
-}
+	return printed;
+	}
+
+
 /**
  * _printf - print string
  * @format: format
