@@ -50,51 +50,35 @@ int print_char(unsigned int z, char c)
 /**
  * print_decimal - This is the entry point of the code
  * @value - First operand
- *
- * Return - 0 Successful
+ ** Return - 0 Successful
  */
+
 int print_decimal(int value)
 {
 	int i, j;
-	char buffer[1000];
+	char buffer[1000000];
 	int printed = 0;
-	if (value == INT_MIN)
-	{
-	const int lastDigit = -(value % 10);
-	value /= 10;
-	do {
-	buffer[i++] = '0' + (value % 10);
-	value /= 10;
-	printed++;
-	} while (value != 0);
-	{
-	buffer[i++] = '0' + lastDigit;
-	} else
-	{
-        if (value < 0)
-	{
-	_putchar('-');
-	 printed++;
-	value = -value;
-	}
-	i = 0;
-	do {
-	
-        buffer[i++] = '0' + (value % 10);
-	
-	value /= 10;
 
-	printed++;
-	} while (value > 0);
+	if (value < 0)
+	{
+		_putchar('-');
+		printed++;
+		value = -value;
 	}
+
+	i = 0;
+
+	do {
+		buffer[i++] = '0' + (value % 10);
+		value /= 10;
+		printed++;
+	} while (value > 0);
 	for (j = i - 1; j >= 0; j--)
 	{
-	_putchar(buffer[j]);
+		_putchar(buffer[j]);
 	}
-	return printed;
-	}
-
-
+	return (value);
+}
 /**
  * _printf - print string
  * @format: format
