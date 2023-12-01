@@ -77,7 +77,7 @@ int print_decimal(int value)
 	{
 		_putchar(buffer[j]);
 	}
-	return (value);
+	return (printed);
 }
 /**
  * _printf - print string
