@@ -1,3 +1,4 @@
+#!/bin/sh
 .TH MY_PRINTF 3 "December 2023" "Version 1.0" "My Printf Manual"
 
 .SH NAME
