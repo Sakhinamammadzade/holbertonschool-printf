@@ -109,11 +109,11 @@ int _printf(const char *format, ...)
 		}
 		else if (*(format + j) == '%' && *(format + j + 1) == 'c')
 		{
-			r += print_char(r, (char)va_arg(ptr, int)), j += 2;
+			r = print_char(r, (char)va_arg(ptr, int)), j += 2;
 		}
 		else if (*(format + j) == '%' && *(format + j + 1) == 's')
 		{
-			r += print_string(r, va_arg(ptr, char *)), j += 2;
+			r = print_string(r, va_arg(ptr, char *)), j += 2;
 		}
 		else if (*(format + j) == '%' && (*(format + j + 1) == 'd' ||
 		*(format + j + 1) == 'i'))
