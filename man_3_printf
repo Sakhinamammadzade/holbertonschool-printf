@@ -1,44 +1,87 @@
-.TH man_3_printf "Dec 1, 2023" 
+#!/bin/sh
+.TH MY_PRINTF 3 "December 2023" "Version 1.0" "My Printf Manual"
 
 .SH NAME
-.B _printf
-- a particular implementation of printf function.
+my_printf \- Custom printf implementation
 
 .SH SYNOPSIS
-_printf(const char *format, ...)
-
-.SH FORMAT OF THE FORMAT STRING
-Format - is a character string.
-
-.TP
-The format string is composed of zero or more directives: ordinary characters (not %), which are copied unchanged to the output stream; and conversion specifications, each of which results in fetching zero or more sub sequent arguments. 
+.B #include <stdio.h>
+.br
+.B #include <stdarg.h>
+.br
+.B #include <stdlib.h>
+.br
+.B #include <unistd.h>
+.br
+.B #include "main.h"
+.br
+.B int _printf(const char *format, ...);
 
 .SH DESCRIPTION
-Function produces output according to a format. We handle the conversion specifiers described in OPTIONS.
+The
+.B my_printf
+function is a custom implementation of the printf function, supporting the format specifiers %c, %s, %d, and %i.
+
+.PP
+.B _printf
+formats and prints data to the standard output stream (stdout) according to the specified format string. The format string may contain placeholders (format specifiers) that begin with the % character, followed by conversion characters.
+
+.SH PARAMETERS
+.B format
+is a string that specifies the format of the output. It may contain ordinary characters and format specifiers.
+
+.B ...
+represents additional arguments corresponding to the format specifiers in the format string.
+
+.SH RETURN VALUE
+The total number of characters written is returned. A negative value is returned in case of an error.
+
+.SH FORMAT SPECIFIERS
+The following format specifiers are supported:
 
 .TP
-Don't reproduced the buffer handling of the C library printf function. Don't handled: the flag characters, field width, precision, the length modifiers
-
-.SH OPTIONS
-We handle the conversion specifiers:
-.br
 .B %c
-- Prints a character. The int argument is converted to an unsigned char.
-.br
-.B %s
-- Prints a string. The const char * argument is a pointer to an array of character type (pointer to a string).  Characters  from the  array are written up to (but not including) a terminating null byte ('\0').
-.br
-.B %d
-- Prints a number in decimal. The  int  argument is converted to signed decimal notation.
-.br
-.B %i
-- Prints a number as integer.
+Prints a character.
 
-.SH RETURN VALUES
-The number of characters printed (excluding tha null byte used to end output to strings). Write output to stdout, the standart output stream.
+.TP
+.B %s
+Prints a string.
+
+.TP
+.B %d, %i
+Prints a signed decimal integer.
+
+.SH EXAMPLES
+.B #include "main.h"
+.br
+.B int main() {
+.br
+.B   _printf("Hello, %s! The answer is %d.\n", "world", 42);
+.br
+.B   return 0;
+.br
+.B }
 
 .SH SEE ALSO
-printf(3)
+.BR printf(3)
 
 .SH AUTHOR
-	Sakina Mammadzade / Zeynal Mustafayev
+Written by Mammadzade Sakina.
+.br
+ adini yaz bura 
+
+.SH REPORTING BUGS
+Report bugs to  mammadzadasakhina@gmail.com
+
+.SH COPYRIGHT
+Copyright (C) 2023 Holberton Azerbaijan. Free use of this software is granted under the terms of the MIT License.
+
+.SH NOTES
+This manual page is not an exhaustive documentation of all features and options. For detailed information, refer to the source code and accompanying documentation.
+
+.SH VERSION
+Version 1.0
+
+.SH DATE
+December 2023
+
